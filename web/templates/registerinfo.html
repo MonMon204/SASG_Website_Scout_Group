@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}Register Information{% endblock %}
+
+{% block content %}
+
+<div class="registerinfo-container">
+    <div class="registerinfo-box">
+        <h2>Enter Information</h2>
+        <form action="{% url 'registerinfo' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="text" name="first_name" value="{{ form.first_name.value }}" >
+                <label>First Name</label>
+            </div>
+            <div class="input-group">
+                <input type="text" name="last_name" value="{{ form.last_name.value }}" >
+                <label>Last Name</label>
+            </div>
+            <div class="input-group">
+                <input type="email" name="email" value="{{ form.email.value }}" >
+                <label>Email Address</label>
+            </div>
+            <div class="input-group filled">
+                {{ form.district }}
+                <label>الوحدة</label>
+            </div>
+            <div class="input-group filled">
+                {{ form.role }}
+                <label>Role</label>
+            </div>
+            <div class="input-group">
+                <input type="text" name="phone" value="{{ form.phone.value }}" >
+                <label>Phone Number</label>
+            </div>
+            <div class="input-group filled">
+                <textarea name="address" rows="2">{{ form.address.value }}</textarea>
+                <label>Address</label>
+            </div>
+            <div class="input-group filled">
+                <label>Date of Birth</label>
+                <input type="date" name="date_of_birth" value="{{ form.date_of_birth.value|date:'Y-m-d' }}">
+            </div>            
+            <div class="input-group filled">
+                <label>Profile Picture</label>
+                <input type="file" name="profile_picture" style="height: fit-content; margin-right: 5rem;">
+                {% if form.instance.profile_picture %}
+                    <div class="current-picture">
+                        <img src="{{ form.instance.profile_picture.url }}" alt="Current Profile Picture" style="max-width: 150px;">
+                    </div>
+                {% endif %}
+            </div>            
+            <div class="input-group">
+                <input type="text" name="dads_name" value="{{ form.dads_name.value }}">
+                <label>Dad's Name</label>
+            </div>
+            <div class="input-group">
+                <input type="text" name="moms_name" value="{{ form.moms_name.value }}" >
+                <label>Mom's Name</label>
+            </div>
+            <div class="input-group">
+                <input type="text" name="dads_phone" value="{{ form.dads_phone.value }}">
+                <label>Dad's Phone</label>
+            </div>
+            <div class="input-group">
+                <input type="text" name="moms_phone" value="{{ form.moms_phone.value }}">
+                <label>Mom's Phone</label>
+            </div>
+            <div class="button-container">
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock %}

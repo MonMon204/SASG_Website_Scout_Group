@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}My Profile{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-container">
+    <aside class="profile-sidebar">
+        <ul class="nav-menu">
+            <li><a href="#" class="active">Dashboard</a></li>
+            <li><a href="{% url 'registerinfo' %}">Update Profile</a></li>
+            <!-- <li><a href="#">Update Password</a></li> -->
+            {% if user.is_authenticated and user.is_superuser %}
+                <li><a href="{% url 'my_district' %}">الوحدات</a></li>
+                <li><a href="{% url 'badges_home' %}">Badges</a></li>
+                <li><a href="{% url 'badge_grading' %}">Grade Badges</a></li>
+                <li><a href="{% url 'admin:index' %}" target="_blank">SASG Administration</a></li>
+            {% else %}
+                {% if current_user.district.name == 'الكشافين' or current_user.district.name == 'المرشدات' %}
+                    <li><a href="{% url 'badges_home' %}">Badges</a></li>
+                {% endif %}
+                {% if current_user.role.name == 'قائد' %}
+                    <li><a href="{% url 'my_district' %}">الوحدات</a></li>
+                    {% if current_user.district.name == 'الكشافين' or current_user.district.name == 'المرشدات' %}
+                        <li><a href="{% url 'badge_grading' %}">Grade Badges</a></li>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+            <li><a href="{% url 'add_gallery' %}">Add Photos/Videos</a></li>
+            <li><a href="{% url 'add_event' %}">Add Event</a></li>
+            <li><a href="{% url 'add_announcement' %}">Add Announcement</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </aside>
+
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="main-dashboard">
+        
+        <div class="dashboard-content">
+            <h1>Hello, <span class="user-name"><strong>{{ current_user }}</strong></span></h1>
+            <!-- <h2>Dashboard</h2>
+            <p>
+                You are from {{ current_user.district }} district, and you are a {{ current_user.role }}.
+            </p> -->
+        </div>
+        {% if current_user.profile_picture %}
+            <img src="{{ current_user.profile_picture.url }}" class="user-profile_picture" alt="profile_picture">
+        {% endif %}
+    </div>
+    
+</div>
+
+
+
+{% endblock %}

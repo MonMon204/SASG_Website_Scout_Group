@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load my_filters %}
+
+{% block content %}
+<br><br><br>
+<div class="mydistrict-container">
+    <h1>My District</h1>
+
+    <!-- District Selection Dropdown -->
+    <div class="district-selection" dir="rtl" style="text-align: right;">
+        <label for="district">الوحدة:</label>
+        <form method="get">
+            <select id="district" name="district" onchange="this.form.submit()">
+                <option value="">----</option>
+                {% for district in districts %}
+                    <option value="{{ district.id }}" {% if district.id|stringformat:"s" == selected_district|stringformat:"s" %}selected{% endif %}>
+                        {{ district.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </form>
+    </div>
+
+
+    <!-- Display Members of the Selected District -->
+    {% if members %}
+        <h2>Members in {{ districts|get_obj_by_pk:selected_district }}</h2>
+        <div class="member-list">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Profile Picture</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Date of Birth</th>
+                        <th>Address</th>
+                        <th>Dad's Name</th>
+                        <th>Dad's Phone Number</th>
+                        <th>Mom's Name</th>
+                        <th>Mom's Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for member in members %}
+                    <tr>
+                        <td><img src="{% if member.profile_picture %}{{ member.profile_picture.url }}{% endif %}" alt="{{ member.user.username }}" width="50"></td>
+                        <td>{{ member.first_name }} {{ member.last_name }}</td>
+                        <td>{{ member.email }}</td>
+                        <td>{{ member.phone }}</td>
+                        <td>{{ member.date_of_birth }}</td>
+                        <td>{{ member.address }}</td>
+                        <td>{{ member.dads_name }}</td>
+                        <td>{{ member.dads_phone }}</td>
+                        <td>{{ member.moms_name }}</td>
+                        <td>{{ member.moms_phone }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p>No members available for this district.</p>
+    {% endif %}
+</div>
+{% endblock %}

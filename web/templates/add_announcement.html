@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Announcement{% endblock %}
+
+{% block content %}
+
+<div class="add-announcement-container">
+    <section class="add-announcement-section">
+        <h2>Add Announcement</h2>
+        <form action="{% url 'add_announcement' %}" method="POST" enctype="multipart/form-data" class="announcement-form">
+            {% csrf_token %}
+            
+            <!-- Rendering form fields dynamically with their associated labels -->
+            <div class="input-group">
+                {{ form.title }}
+                <label for="id_title">Title</label>
+            </div>
+    
+            <div class="input-group">
+                {{ form.description }}
+                <label for="id_description">Description</label>
+            </div>
+    
+            <div class="input-group filled">
+                {{ form.image }}
+                <label for="id_image">Image</label>
+            </div>
+    
+            <div class="input-group">
+                {{ form.date }}
+                <label for="id_date">Date</label>
+            </div>
+            
+            {% if current_user.role.name == 'قائد' and current_user.district.name == 'المجموعة' %}
+            <div class="input-group">
+                {{ form.display_on_home }}
+                <label for="id_display_on_home">Display on Home</label>
+            </div>
+            {% endif %}
+    
+            <button type="submit" class="submit-btn">Submit Announcement</button>
+        </form>
+    </section>
+</div>
+    
+
+
+{% endblock %}

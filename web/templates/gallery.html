@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Gallery{% endblock %}
+
+{% block content %}
+<br><br><br>
+<div class="gallery-container">
+    <h1>Media Gallery</h1>
+
+    <!-- District Selection Dropdown -->
+    <div class="district-selection" dir="rtl" style="text-align: right;">
+        <label for="district">الوحدة:</label>
+        <select id="district" onchange="filterGalleryByDistrict()">
+            <option value="">All</option>
+            {% for district in districts %}
+                <option value="{{ district.id }}">{{ district.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- Gallery Grid -->
+    <section id="gallery" class="gallerypage-section">
+        <div class="gallery-wrapper">
+            {% for gallery in galleries %}
+                {% for file in gallery.files.all %}
+                    <div class="gallery-item" data-district="{{ gallery.district.id }}">
+                        {% if file.file_type == 'image' %}
+                            <img src="{{ file.file.url }}" alt="{{ gallery.title }}" class="gallery-img" onclick="openLightbox('{{ file.file.url }}')">
+                        {% elif file.file_type == 'video' %}
+                            <video class="gallery-video" autoplay loop preload="metadata" muted onclick="openLightbox('{{ file.file.url }}', event)">
+                                <source src="{{ file.file.url }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close">&times;</span>
+        <div class="lightbox-content" id="lightbox-content">
+            <!-- Image or video will be placed here dynamically -->
+        </div>
+    </div>
+    
+</div>
+
+<script>
+    // Filter gallery by selected district
+    function filterGalleryByDistrict() {
+        const selectedDistrict = document.getElementById('district').value;
+        const items = document.querySelectorAll('.gallery-item');
+        
+        items.forEach(item => {
+            const itemDistrict = item.getAttribute('data-district');
+            if (selectedDistrict === "" || itemDistrict === selectedDistrict) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    }
+</script>
+{% endblock %}

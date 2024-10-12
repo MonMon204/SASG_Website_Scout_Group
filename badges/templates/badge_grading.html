@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Badge Grading{% endblock %}
+
+{% block content %}
+<div class="badge-grading-container-parent">
+    <div class="badge-grading-container card">
+        <h2>Grade a Member's Badge</h2>
+
+        <form method="POST" id="member-badge-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_member">Select Member:</label>
+                {{ form.member }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_badge">Select Badge:</label>
+                {{ form.badge }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Proceed to Grading</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('id_member').addEventListener('change', function() {
+        document.getElementById('member-badge-form').submit();  // Automatically submit the form when the member is selected
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero">
+    <div>
+        <h1>
+            <span style="color: yellow;">S</span>t. <span style="color: yellow;">A</span>ntoine <span style="color: yellow;">S</span>cout <span style="color: yellow;">G</span>roup
+        </h1>
+        <!-- <p>Join our journey of leadership and community</p>
+        <button onclick="joinUs()"><strong>Join Us Now!</strong></button> -->
+    </div>
+</div>
+
+
+<!-- Events Section -->
+{% if events %}
+<section id="event" class="event">
+    <h2>Upcoming Events</h2>
+    {% for event in events %}
+        <div class="event-item {% cycle 'left' 'right' %}">
+            <div class="event-text {% if not event.image %}no-image{% endif %}">
+                <h1>{{ event.title }}</h1>
+                <p>{{ event.description }}</p>
+                <strong>{{ event.date }} at {{ event.time }}</strong>
+                <strong>{{ event.location }}</strong>
+            </div>
+
+            <!-- Only display the image if it exists -->
+            {% if event.image %}
+            <div class="event-image">
+                <img src="{{ event.image.url }}" alt="{{ event.title }}">
+            </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+</section>
+{% endif %}
+
+
+<!-- Announcements Section -->
+ {% if announcements %}
+<section id="announcement" class="announcement">
+    <h2>Announcements</h2>
+    {% for announcement in announcements %}
+    {% if announcement.display_on_home %}
+        <div class="announcement-item {% cycle 'left' 'right' %}">
+            <div class="announcement-text {% if not announcement.image %}no-image{% endif %}">
+                <h1>{{ announcement.title }}</h1>
+                <p>{{ announcement.description }}</p>
+                <strong>{{ announcement.date }}</strong>
+            </div>
+
+            <!-- Only display the image if it exists -->
+            {% if announcement.image %}
+            <div class="announcement-image">
+                <img src="{{ announcement.image.url }}" alt="{{ announcement.title }}">
+            </div>
+            {% endif %}
+        </div>
+    {% endif %}
+    {% endfor %}
+</section>
+{% endif %}
+
+
+
+<!-- The Scout Promise -->
+<section id="scout-promise" class="scout-promise">
+    <h2>فضائل الكشاف</h2>
+    <div class="promise-list">
+        <div class="promise-item">
+            <h3><span style="font-weight: bold;">0</span><span class="number">1</span></h3>
+            <p>الصراحة</p>
+        </div>
+        <div class="promise-item">
+            <h3><span style="font-weight: bold;">0</span><span class="number">2</span></h3>
+            <p>التفاني</p>
+        </div>
+        <div class="promise-item">
+            <h3><span style="font-weight: bold;">0</span><span class="number">3</span></h3>
+            <p>الطهارة</p>
+        </div>
+    </div>
+</section>
+
+<!-- The Scout Laws -->
+<section id="scout-laws" class="scout-laws" dir="rtl">
+    <h2>قاونين الكشاف</h2>
+    <p><em>I will do my best to be</em></p>
+    <ul>
+        <li>صادق</li>
+        <li>مخلص</li>
+        <li>نافع</li>
+        <li>ودود</li>
+        <li>مؤدب</li>
+        <li>رفيق</li>
+        <li>مطيع</li>
+        <li>باش</li>
+        <li>مقتصد</li>
+        <li>نظيف</li>
+        <li>شجاع</li>
+    </ul>
+</section>
+
+
+<!-- Gallery -->
+<section id="gallery" class="gallery-section">
+    <h2>Gallery</h2>
+    <div class="gallery-wrapper">
+        {% for gallery in galleries|slice:":11" %} <!-- Display up to 11 items -->
+            {% for file in gallery.files.all %}  <!-- Iterate over related files -->
+                <div class="gallery-item">
+                    {% if file.file_type == 'image' %}
+                        <img src="{{ file.file.url }}" alt="{{ gallery.title }}" class="gallery-img" onclick="openLightbox('{{ file.file.url }}')">
+                    {% elif file.file_type == 'video' %}
+                        <video class="gallery-video" autoplay loop preload="metadata" muted onclick="openLightbox('{{ file.file.url }}', event)">
+                            <source src="{{ file.file.url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <a href="{% url 'gallery' %}" class="gallery-link">
+            View More
+        </a>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close">&times;</span>
+        <div class="lightbox-content" id="lightbox-content">
+            <video id="lightbox-video" controls>
+                <source id="lightbox-source" type="video/*">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+  
+</section>
+
+
+<!-- About Section -->
+<section id="about" class="about">
+    <h2>About Us</h2>
+    <p>The St. Antoine Scout Group (SASG) is a community-focused organization that strives to instill values of leadership, discipline, and spirituality among its members. With a strong commitment to service, we aim to develop the character and skills of young people through outdoor activities, service projects, and leadership development programs.</p>
+</section>
+
+<!-- Activities Section -->
+<section id="activities" class="activities">
+    <h2>Our Activities</h2>
+    <p>We offer a wide range of activities including camping, hiking, community service, leadership workshops, and spiritual retreats. Join us to be part of a vibrant community that values growth and teamwork!</p>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>For more information about our programs and activities, please contact us at:</p>
+    <p>Email: <a href="mailto:#">{{ contact_email }}</a></p>
+    <p>Phone: {{ contact_phone }}</p>
+</section>
+
+
+<!-- Map Section -->
+<section id="map" class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2875.563268940306!2d31.252822048107255!3d30.059821376043715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584084d6ad0c5f%3A0x6c1020ed365d17b3!2sSt.%20Anthony%20the%20Great%20Cathedral%20for%20Coptic%20Catholic!5e0!3m2!1sen!2seg!4v1728118826375!5m2!1sen!2seg" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
+
+
+<!-- Floating Action Button -->
+<div class="floating-button">
+    <button class="fab">+</button>
+    <div class="dropdown-content">
+        <a href="{% url 'add_announcement' %}">
+            <div class="dropdown-item">
+                <i class="bi bi-megaphone-fill"></i>
+            </div>
+        </a>
+        <a href="{% url 'add_event' %}">
+            <div class="dropdown-item">
+                <i class="bi bi-calendar-event-fill"></i>
+            </div>
+        </a>
+        <a href="{% url 'add_gallery' %}">
+            <div class="dropdown-item">
+                <i class="bi bi-image-fill"></i>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

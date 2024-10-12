@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Badge Details{% endblock %}
+
+{% block content %}
+
+<div class="badge-details-parent">
+    <div class="badge-details-container">
+        <div class="badge-header">
+            <h1>{{ badge.title }}</h1>
+        </div>
+        <div class="badge-info">
+            <img src="{{ badge.image.url }}" alt="{{ badge.name }}" class="badge-image">
+            <div class="badge-description" dir="rtl">
+                <!-- <h2>Description</h2> -->
+                <p>{{ badge.description|safe }}</p>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <form action="{% url 'apply_badge' badge.id %}" method="POST" class="apply-form">
+                {% csrf_token %}
+                <button type="submit" class="apply-button">Apply</button>
+            </form>
+            <div class="back-button">
+                <a href="{% url 'badges_home' %}">Back to Badges</a>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+{% endblock %}

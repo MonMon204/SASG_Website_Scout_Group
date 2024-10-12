@@ -1,0 +1,2127 @@
+
+/* Body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px 0;
+    text-align: center;
+    z-index: 1000;
+    transition: top 0.3s; /* Transition effect when sliding down (and up) */
+    top: 0; /* Stay on top */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('../assets/sasg_pic.jpg') no-repeat center center/cover fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    color: white;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.hero button {
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.hero button:hover {
+    background-color: var(--primary-light);
+}
+
+/* Content Sections */
+section {
+    padding: 80px 80px;
+    /* max-width: max-content; */
+    margin: auto;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.about, .activities {
+    background-color: white;
+    margin: 20px 0;
+}
+
+/* Scouts Laws */
+/* General styling for the scout-laws section */
+.scout-laws {
+    background: url('../assets/scout-laws.webp') no-repeat center center/cover fixed;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for contrast */
+    background-blend-mode: darken;
+    padding: 80px 0;
+    text-align: center;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+}
+
+#scout-laws h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    z-index: 2;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+#scout-laws p {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #ff6f00; /* Orange color */
+    z-index: 2;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+/* List of scout laws */
+#scout-laws ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 5fr); /* 4 equal-width columns */
+    gap: 50px; /* Spacing between the columns */
+    max-width: 1000px;
+    z-index: 2;
+    position: relative;
+}
+
+#scout-laws li {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+#scout-laws li::before {
+    content: '✔'; /* Checkmark */
+    font-size: 1.5rem;
+    color: #ff6f00; /* Orange color */
+    margin-left: 15px;
+    display: inline-block;
+}
+
+/* To ensure the text content is readable against the background image */
+#scout-laws * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Styling for the Scout Promise section */
+#scout-promise {
+    background-color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+#scout-promise h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.promise-list {
+    display: flex;
+    justify-content: space-around;
+    /* gap: 50px; */
+    flex-direction: row-reverse;
+}
+
+.promise-item {
+    text-align: center;
+}
+
+.promise-item h3 {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.promise-item .number {
+    color: #ff6f00; /* Orange color for the number */
+    font-weight: bold;
+}
+
+.promise-item p {
+    margin-top: 10px;
+    font-size: 2.5rem;
+    color: #000;
+}
+
+
+/* Gallery section */
+/* Gallery Section Styling */
+.gallery-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+
+.gallery-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+
+/* Gallery page Styling */
+.gallerypage-section {
+    padding: 60px 0px;
+    background-color: #f9f9f9;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+
+.gallerypage-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.gallery-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Dynamic columns */
+    gap: 1px;
+    justify-content: center;
+}
+
+.gallery-item {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 16rem;
+}
+
+.gallery-item:hover {
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.gallery-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* View More Arrow */
+.gallery-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #ff6f00;
+    flex-direction: column;
+}
+
+.gallery-link:hover {
+    color: #e56503; /* Slightly darker orange on hover */
+}
+
+.gallery-link .arrow {
+    margin-left: 10px;
+    font-size: 2rem;
+    transition: margin-left 0.3s ease;
+}
+
+.gallery-link:hover .arrow {
+    margin-left: 20px;
+}
+
+/* Lightbox Styling */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    /* padding-top: 50px; */
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+}
+
+#lightbox-video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+#lightbox-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    cursor: pointer;
+}
+
+
+/* map section */
+.map {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.map iframe {
+    width: 100%;
+    height: 600px; /* Adjust based on your design */
+    border: none;
+}
+
+
+
+/* action buttom */
+/* Floating Button Styles */
+.floating-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+/* Main Floating Action Button */
+.fab {
+    background-color: #ff6f00;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 36px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Main Button Hover Effect */
+.fab:hover {
+    background-color: #e65c00;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* Dropdown Item */
+.dropdown-item {
+    background-color: #ff6f00;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.dropdown-item:hover {
+    background-color: #e65c00;
+}
+
+/* Transform button into multiple balls on hover */
+.floating-button:focus-within .fab {
+    transform: scale(0); /* Shrink the main button */
+    transition: transform 0.3s;
+}
+
+/* Show dropdown when focused or hovered on any part */
+.floating-button:focus-within .dropdown-content {
+    display: flex;
+}
+
+/* Icon Hover Effect */
+.dropdown-item i {
+    color: white; /* Default icon color */
+    font-size: 20px; /* You can adjust the size if needed */
+    transition: color 0.3s ease; /* Smooth transition for color */
+}
+
+.dropdown-item:hover i {
+    color: #333; /* Dark color on hover */
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--primary-dark);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Announcement Section */
+.announcement {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.announcement h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--secondary-dark);
+}
+
+.announcement-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.announcement-item.left .announcement-image {
+    order: 1;
+}
+
+.announcement-item.right .announcement-image {
+    order: 2;
+}
+
+.announcement-item.left .announcement-text {
+    order: 2;
+    text-align: right;
+}
+
+.announcement-item.right .announcement-text {
+    order: 1;
+    text-align: left;
+}
+
+.announcement-image {
+    flex: 1;
+    width: 50%;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.announcement-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.announcement-text {
+    flex: 1;
+    padding: 20px;
+}
+
+.announcement-text h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.announcement-text p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: var(--muted-color);
+}
+
+.announcement-text strong {
+    font-size: 1em;
+    color: var(--secondary-color);
+}
+
+/* Style when there is no image */
+.announcement-text.no-image {
+    text-align: center;
+    width: 100%;  /* Full width when no image */
+}
+
+.announcement-item.no-image {
+    justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .announcement-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .announcement-item.left .announcement-text,
+    .announcement-item.right .announcement-text {
+        text-align: center;
+    }
+
+    .announcement-image {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .announcement-item.left .announcement-image {
+        order: 1;
+    }
+    
+    .announcement-item.right .announcement-image {
+        order: 1;
+    }
+    
+    .announcement-item.left .announcement-text {
+        order: 2;
+    }
+    
+    .announcement-item.right .announcement-text {
+        order: 2;
+    }
+}
+
+/* Events Section */
+.event {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.event h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--secondary-dark);
+}
+
+.event-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.event-item.left .event-image {
+    order: 1;
+}
+
+.event-item.right .event-image {
+    order: 2;
+}
+
+.event-item.left .event-text {
+    order: 2;
+    text-align: right;
+}
+
+.event-item.right .event-text {
+    order: 1;
+    text-align: left;
+}
+
+.event-image {
+    flex: 1;
+    width: 50%;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.event-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.event-text {
+    flex: 1;
+    padding: 20px;
+}
+
+.event-text h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.event-text p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: var(--muted-color);
+}
+
+.event-text strong {
+    font-size: 1em;
+    color: var(--secondary-color);
+}
+
+/* Style when there is no image */
+.event-text.no-image {
+    text-align: center;
+    width: 100%; /* Full width when no image */
+}
+
+.event-item.no-image {
+    justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .event-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .event-item.left .event-text,
+    .event-item.right .event-text {
+        text-align: center;
+    }
+
+    .event-image {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .event-item.left .event-image {
+        order: 1;
+    }
+
+    .event-item.right .event-image {
+        order: 1;
+    }
+
+    .event-item.left .event-text {
+        order: 2;
+    }
+
+    .event-item.right .event-text {
+        order: 2;
+    }
+}
+
+/* Login Page */
+.login-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../assets/login-background.webp') no-repeat center center/cover fixed;
+    background-color: rgba(0, 0, 0, 0.7); /* Overlay for contrast */
+    background-blend-mode: darken;
+}
+
+.login-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    font-size: 2rem;
+}
+
+/* .input-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1rem;
+    background-color: var(--background-color);
+    transition: all 0.3s ease;
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: var(--muted-color);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+    top: -10px;
+    font-size: 12px;
+    color: var(--secondary-color);
+}
+
+.input-group input:focus {
+    border-color: var(--secondary-color);
+} */
+
+.button-container {
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--secondary-dark);
+}
+
+.bottom-text {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.bottom-text p {
+    font-size: 0.9rem;
+    color: var(--muted-color);
+}
+
+.bottom-text a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.bottom-text a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-box {
+        width: 100%;
+        padding: 30px;
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 12px;
+    }
+}
+
+/* Register Page */
+
+/* Registration Container */
+.register-container {
+    width: 100%;
+    height: 110vh; /* Adjust height as per content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../assets/register-background.jpg') no-repeat center center/cover fixed;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for contrast */
+    background-blend-mode: darken;
+    position: relative;
+}
+
+/* Register Box */
+.register-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Header Styles */
+.register-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    font-size: 2rem;
+}
+
+/* Form Styles */
+.register-box form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Input Group Styles */
+.input-group {
+    flex: 1 1 calc(50% - 20px);
+    margin-bottom: 20px;
+    position: relative;
+    transition: transform 0.3s ease-in-out; /* Smooth animation */
+}
+
+.input-group:hover {
+    transform: translateY(-5px); /* Hover effect */
+}
+
+.input-group:nth-child(odd) {
+    margin-right: 20px;
+}
+
+/* Input and Label Styling */
+.input-group input,
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px !important;
+    outline: none;
+    font-size: 1rem;
+    background-color: var(--background-color);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: var(--muted-color);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+/* Add focus and filled state */
+.input-group input:focus + label,
+.input-group textarea:focus + label,
+.input-group input.filled + label,
+.input-group textarea.filled + label,
+.input-group select.filled + label {
+    top: -10px;
+    font-size: 12px;
+    color: var(--secondary-color);
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+    border-color: var(--secondary-color);
+    background-color: #f4f4f4; /* Slightly lighter background on focus */
+}
+
+/* Always keep label floated for inputs with the 'filled' class */
+.input-group.filled label {
+    top: -10px;
+    font-size: 12px;
+    color: var(--secondary-color);
+}
+
+
+/* Button Container */
+.button-container {
+    text-align: center;
+    width: 100%;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--secondary-dark); /* Darker shade on hover */
+}
+
+/* Bottom Text */
+.bottom-text {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.bottom-text p {
+    font-size: 0.9rem;
+    color: var(--muted-color);
+}
+
+.bottom-text a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.bottom-text a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .register-box {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .input-group {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 12px;
+    }
+}
+
+/* Register Information */
+
+/* Registration Info Container */
+.registerinfo-container {
+    width: 100%;
+    height: fit-content;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../assets/register-background.jpg') no-repeat center center/cover fixed;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for contrast */
+    background-blend-mode: darken;
+    position: relative;
+}
+
+/* Register Info Box */
+.registerinfo-box {
+    background-color: white;
+    padding: 50px; /* Increased padding for a larger card */
+    border-radius: 15px; /* Slightly more rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow for more emphasis */
+    width: 90%;
+    max-width: 900px; /* Increased max-width for a bigger card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header Styles */
+.registerinfo-box h2 {
+    text-align: center;
+    margin-bottom: 30px; /* Increased bottom margin */
+    color: var(--secondary-color);
+    font-size: 2.5rem; /* Larger font size for the header */
+}
+
+/* Form Styles */
+.registerinfo-box form {
+    display: flex;
+    flex-direction: column; /* Changed to column for better alignment */
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+/* Error Message Styles */
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.help-text {
+    font-size: 0.9rem;
+    color: var(--muted-color);
+}
+
+/* Button Container */
+.button-container {
+    text-align: center;
+    width: 100%;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--secondary-dark); /* Darker shade on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .registerinfo-box {
+        width: 90%;
+        padding: 30px; /* Reduced padding for smaller screens */
+    }
+    
+    button {
+        padding: 12px; /* Adjusted button padding for smaller screens */
+    }
+}
+
+
+
+/* messages */
+
+/* Notification Container */
+.notification-container {
+    position: fixed;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    z-index: 1000;
+    width: auto; /* Optional: Can set a max-width if desired */
+}
+
+/* Notification Styles */
+.notification {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+    opacity: 0.9; /* Make it slightly transparent */
+    animation: slideIn 0.5s ease-in-out; /* Optional: Add a slide-in animation */
+    max-width: 400px; /* Optional: Limit the width of notifications */
+    width: 100%; /* Full width if max-width is not set */
+}
+
+/* Error Notification */
+.notification.error {
+    background-color: #e74c3c; /* Red */
+}
+
+/* Success Notification */
+.notification.success {
+    background-color: #2ecc71; /* Green */
+}
+
+/* Close Button */
+.close-btn {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-left: 15px;
+}
+
+/* Slide-in Animation */
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* Account Page */
+/* Profile Page */
+
+/* Container */
+.dashboard-container {
+    display: flex;
+    height: 100vh; /* Full height to center vertically */
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    padding: 20px;
+    background: url('../assets/dashboard-background.jpg') no-repeat center center/cover fixed;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for contrast */
+    background-blend-mode: darken;
+    position: relative;
+    align-items: center;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+/* Sidebar and Menu Button */
+.profile-sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden by default */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: left 0.3s ease-in-out;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.profile-sidebar.active {
+    left: 0; /* Slide in when active */
+}
+
+.profile-sidebar .nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-sidebar .nav-menu li {
+    margin-bottom: 15px;
+}
+
+.profile-sidebar .nav-menu a {
+    display: block;
+    padding: 10px;
+    background-color: var(--muted-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.profile-sidebar .nav-menu a.active,
+.profile-sidebar .nav-menu a:hover {
+    background-color: var(--warning-color);
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 1000;
+    background-color: #ff6f00;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 36px;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-toggle:hover {
+    background-color: #e65c00;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .profile-sidebar {
+        width: 100%;
+        left: -100%; /* Fully hidden on small screens */
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .profile-sidebar.active {
+        left: 0; /* Slide from the left on small screens */
+    }
+
+    .menu-toggle {
+        right: 20px;
+    }
+}
+
+/* Main Dashboard */
+.main-dashboard {
+    display: flex;
+    justify-content: space-between; /* Space between content and image */
+    align-items: center; /* Align content to the top */
+    flex-wrap: wrap;
+    background-color: #fff;
+    padding: 40px;
+    margin-left: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-content {
+    flex-grow: 1; /* Allow content to take up available space */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.main-dashboard h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.main-dashboard h1 .user-name {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.main-dashboard h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.main-dashboard p {
+    font-size: 1rem;
+    color: #555;
+    text-align: left;
+}
+
+.main-dashboard a {
+    color: var(--secondary-light);
+    text-decoration: none;
+}
+
+.main-dashboard a:hover {
+    text-decoration: underline;
+}
+
+/* Profile Picture */
+.user-profile_picture {
+    width: 10rem;
+    height: auto;
+    border-radius: 1rem;
+    margin-left: 20rem; /* Add space between the picture and the content */
+    object-fit: cover; /* Ensure the image is properly fitted */
+}
+
+
+/* Badges */
+.badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* flex-direction: row; */
+    flex-direction: row-reverse;
+    align-content: center;
+    align-items: center;
+    background: url('../assets/Scout-badges.jpg') no-repeat center center/cover fixed;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for contrast */
+    background-blend-mode: darken;
+    height: fit-content;
+    padding-top: 5rem;
+}
+
+
+/* Badge Container Styling */
+.badges {
+    display: inline-block;
+    text-align: center;
+    background-color: #fff; /* Adjust this to match your theme */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 250px; /* Adjust this value based on your desired badge size */
+    vertical-align: top;
+}
+
+.badges:hover {
+    /* transform: translateY(-5px); */
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Badge Title Styling */
+.badges h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.badges a {
+    text-decoration: none; /* Remove underline from all links */
+}
+
+/* Badge Image Styling */
+.badges img {
+    max-width: 100%; /* Ensures image fits the container */
+    height: auto;
+    border-radius: 50%; /* Makes the image circular */
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+}
+
+/* Badge Description Styling */
+.badges p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .badges {
+        width: 9rem;
+        margin: 10px;
+        height: auto;
+    }
+
+    .badges h2 {
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .badges img {
+        width: 5rem;
+        height: 5rem;
+    }
+}
+
+/* badge details */
+
+.badge-details-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    background: url('../assets/Scout-badges.jpg') no-repeat center center/cover fixed;
+    background-color: rgb(0, 0, 0, 0.6); /* Dark overlay for contrast */
+    background-blend-mode: darken;
+    height: fit-content;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+/* General container for the badge details page */
+.badge-details-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+.badge-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.badge-header h1 {
+    font-size: 2.5rem;
+    color: var(--secondary-color); /* Adjust primary color according to your theme */
+}
+
+/* Badge information styles */
+.badge-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+/* Badge image */
+.badge-image {
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+}
+
+/* Description styles */
+.badge-description {
+    flex-grow: 1;
+    padding-left: 20px;
+}
+
+.badge-description h2 {
+    font-size: 1.8rem;
+    color: var(--secondary-color); /* Use your secondary color */
+    margin-bottom: 10px;
+}
+
+.badge-description p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Extra information */
+.badge-extra-info {
+    margin-top: 20px;
+}
+
+.badge-extra-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.badge-extra-info p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Container for both buttons */
+.button-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center align both buttons */
+    gap: 15px; /* Space between buttons */
+    width: 100%; /* Full width of the container */
+}
+
+/* Back button styling */
+.back-button a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: var(--secondary-color); /* Replace with your theme color */
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    width: 100%; /* Make the button full width */
+    text-align: center; /* Center the text */
+}
+
+.back-button a:hover {
+    background-color: var(--secondary-dark); /* Adjust hover effect */
+}
+
+/* Apply button styling */
+.apply-button {
+    background-color: #28a745; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 100%; /* Full width */
+    text-align: center; /* Center the text */
+}
+
+.apply-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+
+/* Badge Grading */
+
+/* Badge Grading - Card Style */
+
+.badge-grading-container-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('../assets/Scout-badges.jpg') no-repeat center center/cover fixed;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for contrast */
+    background-blend-mode: darken;
+}
+
+.badge-grading-container {
+    /* max-width: 600px; */
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 25rem;
+}
+
+.badge-grading-container h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.badge-grading-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.badge-grading-container form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px !important;
+    outline: none;
+    font-size: 1rem;
+    background-color: var(--background-color);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.badge-grading-container form select:focus {
+    border-color: var(--secondary-color);
+    background-color: #f4f4f4; /* Slightly lighter background on focus */
+}
+
+.badge-grading-container label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.badge-grading-container select {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.badge-grading-container button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.badge-grading-container button:hover {
+    background-color: #218838;
+}
+
+/* Badge Grading Details - Table Style */
+
+.grading-details-container-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    background: url('../assets/Scout-badges.jpg') no-repeat center center/cover fixed;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for contrast */
+    background-blend-mode: darken;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    width: 100%;
+}
+
+.grading-details-container {
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 70vw;
+}
+
+.grading-details-container h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.grading-details-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.grading-details-container table th,
+.grading-details-container table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.grading-details-container table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.grading-details-container input[type="text"],
+.grading-details-container textarea,
+.grading-details-container input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.grading-details-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.grading-details-container button:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* add announcements */
+.add-announcement-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 125vh;
+    background: url('../assets/Announcement-background.jpeg') no-repeat center center/cover fixed;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for contrast */
+    background-blend-mode: darken;
+}
+
+/* Add Announcement Form Section */
+.add-announcement-section {
+    margin-top: 100px;
+    padding: 40px;
+    max-width: 800px;
+    margin: 100px auto;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 100%;
+}
+
+.add-announcement-section h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.announcement-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="file"],
+.form-group textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.form-group input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: var(--secondary-light);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    align-self: flex-end;
+}
+
+.submit-btn:hover {
+    background-color: var(--secondary-dark);
+}
+
+
+/* Add Event */
+.add-event-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+    background: url('../assets/event-background.webp') no-repeat center center/cover fixed;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for contrast */
+    background-blend-mode: darken;
+}
+
+/* Add Event Form Section */
+.add-event-section {
+    margin-top: 100px;
+    padding: 40px;
+    max-width: 800px;
+    margin: 100px auto;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 100%;
+}
+
+.add-event-section h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.event-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="date"],
+.input-group input[type="time"],
+.input-group input[type="file"],
+.input-group textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: var(--secondary-color);
+    background-color: #f4f4f4; /* Slightly lighter background on focus */
+}
+
+textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: var(--secondary-light);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    align-self: flex-end;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--secondary-dark);
+}
+
+
+/* Add Gallery */
+
+.add-gallery-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 105vh;
+    background: url('../assets/scout-image-background.webp') no-repeat center center/cover fixed;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for contrast */
+    background-blend-mode: darken;
+}
+
+/* Add Event Form Section */
+.add-gallery-section {
+    margin-top: 100px;
+    padding: 40px;
+    max-width: 800px;
+    margin: 100px auto;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 100%;
+}
+
+.add-gallery-section h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+/* Gallery Form Styles */
+.gallery-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Optional: Adjust space between input groups */
+}
+
+/* Include the Input Group Styles */
+.input-group {
+    flex: 1 1 calc(50% - 20px);
+    margin-bottom: 20px;
+    position: relative;
+    transition: transform 0.3s ease-in-out; /* Smooth animation */
+}
+
+.input-group:hover {
+    transform: translateY(-5px); /* Hover effect */
+}
+
+.input-group:nth-child(odd) {
+    margin-right: 20px;
+}
+
+/* Input and Label Styling */
+.input-group input,
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px !important;
+    outline: none;
+    font-size: 1rem;
+    background-color: var(--background-color);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: var(--muted-color);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+/* Add focus and filled state */
+.input-group input:focus + label,
+.input-group textarea:focus + label,
+.input-group input.filled + label,
+.input-group textarea.filled + label,
+.input-group select.filled + label {
+    top: -10px;
+    font-size: 12px;
+    color: var(--secondary-color);
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+    border-color: var(--secondary-color);
+    background-color: #f4f4f4; /* Slightly lighter background on focus */
+}
+
+/* Always keep label floated for inputs with the 'filled' class */
+.input-group.filled label {
+    top: -10px;
+    font-size: 12px;
+    color: var(--secondary-color);
+}
+
+
+
+/* Gallery Page */
+
+.gallery-container {
+    padding: 20px;
+    color: var(--secondary-color);
+    /* text-align: center; */
+}
+
+.gallery-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+.district-selection {
+    margin-bottom: 20px;
+}
+
+.district-selection select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px !important;
+    outline: none;
+    font-size: 1rem;
+    background-color: var(--background-color);
+}
+
+
+.district-selection select:focus {
+    border-color: var(--secondary-color);
+    background-color: #f4f4f4; /* Slightly lighter background on focus */
+}
+
+/* .gallery-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 16rem;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-img, .gallery-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+} */
+
+/* Lightbox Styling */
+
+/* .lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center; 
+    align-items: center; 
+}
+
+.lightbox-content {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    max-width: 90%;
+    max-height: 80%;
+    flex-wrap: wrap;
+}
+
+.lightbox img, .lightbox video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover {
+    color: #bbb;
+    cursor: pointer;
+} */
+
+
+/* my_district page */
+
+.mydistrict-container {
+    padding: 20px;
+    color: var(--secondary-color);
+}
+
+.mydistrict-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+.district-selection {
+    margin-bottom: 20px;
+}
+
+.district-selection select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px !important;
+    outline: none;
+    font-size: 1rem;
+    background-color: var(--background-color);
+}
+
+.district-selection select:focus {
+    border-color: var(--secondary-color);
+    background-color: #f4f4f4; /* Slightly lighter background on focus */
+}
+
+.member-list {
+    margin-top: 20px;
+    overflow-x: auto; /* Add horizontal scrolling */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+

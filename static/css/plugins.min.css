@@ -1,0 +1,291 @@
+/* Primary and Secondary Colors */
+:root {
+    --primary-color: #5A2D81;      /* Deep Purple */
+    --secondary-color: #ae7845;    /* Golden Brown */
+    --primary-light: #7b3fa2;      /* Lighter Shade of Primary */
+    --primary-dark: #43215f;       /* Darker Shade of Primary */
+    --secondary-light: #c79561;    /* Lighter Shade of Secondary */
+    --secondary-dark: #6a4a27;     /* Darker Shade of Secondary */
+    --text-color: #333333;         /* Default Text Color */
+    --muted-color: #555555;        /* Muted Text Color */
+    --background-color: #f4f4f4;   /* Light Background Color */
+    --accent-color: #FFD700;       /* Accent (Gold) */
+    --error-color: #ff4c4c;        /* Error (Red) */
+    --success-color: #4caf50;      /* Success (Green) */
+    --info-color: #2196f3;         /* Info (Blue) */
+    --warning-color: #ff9800;      /* Warning (Orange) */
+}
+
+/* General Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Primary Theme Color */
+.primary-bg {
+    background-color: var(--primary-color);
+}
+
+.primary-text {
+    color: var(--primary-color);
+}
+
+.primary-border {
+    border-color: var(--primary-color);
+}
+
+/* Secondary Theme Color */
+.secondary-bg {
+    background-color: var(--secondary-color);
+}
+
+.secondary-text {
+    color: var(--secondary-color);
+}
+
+.secondary-border {
+    border-color: var(--secondary-color);
+}
+
+/* Accent Color */
+.accent-bg {
+    background-color: var(--accent-color);
+}
+
+.accent-text {
+    color: var(--accent-color);
+}
+
+.accent-border {
+    border-color: var(--accent-color);
+}
+
+/* Muted Text */
+.muted-text {
+    color: var(--muted-color);
+}
+
+/* Success */
+.success-bg {
+    background-color: var(--success-color);
+}
+
+.success-text {
+    color: var(--success-color);
+}
+
+.success-border {
+    border-color: var(--success-color);
+}
+
+/* Error */
+.error-bg {
+    background-color: var(--error-color);
+}
+
+.error-text {
+    color: var(--error-color);
+}
+
+.error-border {
+    border-color: var(--error-color);
+}
+
+/* Info */
+.info-bg {
+    background-color: var(--info-color);
+}
+
+.info-text {
+    color: var(--info-color);
+}
+
+.info-border {
+    border-color: var(--info-color);
+}
+
+/* Warning */
+.warning-bg {
+    background-color: var(--warning-color);
+}
+
+.warning-text {
+    color: var(--warning-color);
+}
+
+.warning-border {
+    border-color: var(--warning-color);
+}
+
+/* Button Styling */
+.button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.button-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.button-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.button-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.button-secondary:hover {
+    background-color: var(--secondary-dark);
+}
+
+.button-success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.button-success:hover {
+    background-color: #43a047;
+}
+
+.button-error {
+    background-color: var(--error-color);
+    color: white;
+}
+
+.button-error:hover {
+    background-color: #e53935;
+}
+
+/* Form Inputs */
+input, select, textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-color);
+}
+
+input.error, select.error, textarea.error {
+    border-color: var(--error-color);
+}
+
+input.success, select.success, textarea.success {
+    border-color: var(--success-color);
+}
+
+/* Card Components */
+.card {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin: 20px 0;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.card-body {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.card-footer {
+    margin-top: 20px;
+    text-align: right;
+    color: var(--muted-color);
+}
+
+/* Badge */
+.badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.badge-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.badge-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.badge-success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.badge-error {
+    background-color: var(--error-color);
+    color: white;
+}
+
+/* Modal */
+.modal {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    color: white;
+}
+
+.modal-header {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.modal-body {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}

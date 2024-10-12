@@ -1,0 +1,50 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Add Event{% endblock %}
+
+{% block content %}
+
+
+<div class="add-event-container">
+    <section class="add-event-section">
+        <h2>Add Event</h2>
+        <form action="{% url 'add_event' %}" method="POST" enctype="multipart/form-data" class="event-form">
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="text" name="title">
+                <label>Title</label>
+            </div>
+            <div class="input-group filled">
+                <input type="date" name="date">
+                <label>Date</label>
+            </div>
+            <div class="input-group filled">
+                <input type="time" name="time">
+                <label>Time</label>
+            </div>
+            <div class="input-group">
+                <input type="text" name="location">
+                <label>Location</label>
+            </div>
+            <div class="input-group filled">
+                <textarea name="description" rows="3"></textarea>
+                <label>Description</label>
+            </div>
+            <div class="input-group filled">
+                <input type="file" name="image">
+                <label>Image</label>
+            </div>
+            {% if current_user.role.name == 'قائد' and current_user.district.name == 'المجموعة' %}
+            <div class="input-group">
+                {{ form.display_on_home }}
+                <label for="id_display_on_home">Display on Home</label>
+            </div>
+            {% endif %}
+            <button type="submit" class="submit-btn">Submit Event</button>
+        </form>
+    </section>
+</div>
+
+
+{% endblock %}
