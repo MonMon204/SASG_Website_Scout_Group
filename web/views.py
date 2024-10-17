@@ -7,6 +7,8 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm, UpdateUserForm, MemberForm, AnnouncementForm, EventForm, GalleryForm
 from django import forms
 
+from badges.models import Badge, BadgeTerm, GradeAttachment, BadgeGradingSystem, BadgeApproval
+
 
 
 def home(request):
@@ -88,7 +90,10 @@ def register_user_info(request):
 def profile(request):
     if request.user.is_authenticated:
         current_user = Member.objects.get(user=request.user)
-        return render(request, 'profile.html', {'current_user': current_user})
+        his_district = current_user.district
+        his_role = current_user.role
+        his_badges = BadgeApproval.objects.filter(member=current_user).filter(display_on_his_account=True).filter(passed=True).all()
+        return render(request, 'profile.html', {'current_user': current_user, 'his_district': his_district, 'his_role': his_role, 'his_badges': his_badges})
     else:
         messages.error(request, ('Please login first'))
         return redirect('login')

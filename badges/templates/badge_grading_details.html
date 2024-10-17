@@ -6,34 +6,37 @@
 <div class="grading-details-container-parent">
     <div class="grading-details-container">
         <h2>Grading for {{ member.user.username }} - {{ badge.title }}</h2>
-
+        
+        
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <table>
-                <thead>
-                    <tr>
-                        <th>Term</th>
-                        <th>Description</th>
-                        <th>Grade</th>
-                        <th>File Attachment</th>
-                        <th>Additional Notes</th>
-                        <th>Passed</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for field in form_fields %}
-                    <tr>
-                        <td>{{ field.term.term }}</td>
-                        <td>{{ field.term.description }}</td>
-                        <td>{{ field.grade }}</td>
-                        <td>{{ field.file }}</td>
-                        <td>{{ field.description }}</td>
-                        <td>{{ field.passed }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <div style="text-align: center;">
+            <div class="grading-details-form">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Term</th>
+                            <th>Description</th>
+                            <th>Grade</th>
+                            <th>File Attachment</th>
+                            <th>Additional Notes</th>
+                            <th>Passed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for field in form_fields %}
+                        <tr>
+                            <td style="direction: rtl; text-align: right;">{{ field.term.term }}</td>
+                            <td style="direction: rtl; text-align: right;">{{ field.term.description }}</td>
+                            <td>{{ field.grade }}</td>
+                            <td>{{ field.file }}</td>
+                            <td>{{ field.description }}</td>
+                            <td>{{ field.passed }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align: center; position: relative;">
                 <button type="submit" class="btn btn-primary">Submit Grades</button>
             </div>
         </form>

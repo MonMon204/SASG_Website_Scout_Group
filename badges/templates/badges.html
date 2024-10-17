@@ -8,7 +8,7 @@
 {% for badge in badges %}
     <div class="badges">
         <a href="{% url 'badge_details' badge.id %}">
-            <img src="{{ badge.image.url }}" alt="{{ badge.name }}">
+            <img src="{{ badge.image.url }}" alt="{{ badge.title }}">
             <h2>{{ badge.title }}</h2>
         </a>
     </div>

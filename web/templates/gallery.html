@@ -45,6 +45,28 @@
             <!-- Image or video will be placed here dynamically -->
         </div>
     </div>
+
+    <!-- Floating Action Button -->
+    <div class="floating-button">
+        <button class="fab">+</button>
+        <div class="dropdown-content">
+            <a href="{% url 'add_announcement' %}">
+                <div class="dropdown-item">
+                    <i class="bi bi-megaphone-fill"></i>
+                </div>
+            </a>
+            <a href="{% url 'add_event' %}">
+                <div class="dropdown-item">
+                    <i class="bi bi-calendar-event-fill"></i>
+                </div>
+            </a>
+            <a href="{% url 'add_gallery' %}">
+                <div class="dropdown-item">
+                    <i class="bi bi-image-fill"></i>
+                </div>
+            </a>
+        </div>
+    </div>
     
 </div>
 

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Camp Sites</h1>
+<ul>
+    {% for camp_site in camp_sites %}
+        <li><a href="{% url 'camp_site_detail' camp_site.pk %}">{{ camp_site.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

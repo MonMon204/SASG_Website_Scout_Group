@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br><br><br>
+<h1>Resources</h1>
+<ul>
+    {% for resource in resources %}
+        <li><a href="{% url 'resource_detail' resource.pk %}">{{ resource.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

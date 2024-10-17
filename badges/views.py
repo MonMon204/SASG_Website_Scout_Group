@@ -1,16 +1,24 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from .models import Badge, BadgeTerm, GradeAttachment, BadgeGradingSystem
+from .models import Badge, BadgeTerm, GradeAttachment, BadgeGradingSystem, BadgeApproval
 from django.shortcuts import get_object_or_404
 from web.models import Member
 
+
 def badges_home(request):
+    if request.user.is_authenticated is False:
+        messages.error(request, ('You need to login to access this page'))
+        return redirect('login')
     badges = Badge.objects.all()
     return render(request, 'badges.html', {'badges': badges})
 
 
 def badge_details(request, id):
+    if request.user.is_authenticated is False:
+        messages.error(request, ('You need to login to access this page'))
+        return redirect('login')
     badge = get_object_or_404(Badge, id=id)  # Assuming Badge is your model name
     return render(request, 'badge_details.html', {'badge': badge})
 
@@ -36,6 +44,15 @@ def apply_badge(request, badge_id):
                 badge_term=term,
                 passed=False
             )
+        
+        BadgeApproval.objects.create(
+            member=member,
+            badge=badge,
+            passed=False,
+            display_on_his_account=False
+        )
+
+        messages.success(request, 'Badge application submitted successfully')
         
         return redirect('home')
 

@@ -29,8 +29,8 @@ SECRET_KEY = 'django-insecure-9z^1gf^*7=&@t&q3gt_csq353(kf^lggftc1zst*=8uvfoko1&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['192.168.1.3', '127.0.0.1']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.3', '127.0.0.1']
+# ALLOWED_HOSTS = []
 CSRF_TRUSTED_ORIGINS = []
 
 
@@ -89,14 +89,14 @@ WSGI_APPLICATION = 'sasg.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': 'junction.proxy.rlwy.net',
-        'PORT': '58136',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'railway',
+        # 'USER': 'postgres',
+        # 'PASSWORD': os.environ.get('DB_PASSWORD'),
+        # 'HOST': 'junction.proxy.rlwy.net',
+        # 'PORT': '58136',
     }
 }
 

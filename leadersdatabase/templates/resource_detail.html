@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br><br><br><br><br>
+<h1>{{ resource.title }}</h1>
+<p>{{ resource.description }}</p>
+<p><a href="{{ resource.link }}">Resource Link</a></p>
+
+<h2>Files</h2>
+{% if resource.files.all %}
+    <ul>
+        {% for file in resource.files.all %}
+            <li><a href="{{ file.file.url }}">{{ file.file.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No files available for this resource.</p>
+{% endif %}
+
+
+
+<a href="{% url 'resources' %}">Back to Resources</a>
+{% endblock %}

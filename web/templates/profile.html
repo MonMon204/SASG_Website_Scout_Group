@@ -23,6 +23,7 @@
                     <li><a href="{% url 'my_district' %}">الوحدات</a></li>
                     {% if current_user.district.name == 'الكشافين' or current_user.district.name == 'المرشدات' %}
                         <li><a href="{% url 'badge_grading' %}">Grade Badges</a></li>
+                        <li><a href="{% url 'admin:index' %}" target="_blank">SASG Administration</a></li>
                     {% endif %}
                 {% endif %}
             {% endif %}
@@ -46,6 +47,39 @@
         {% if current_user.profile_picture %}
             <img src="{{ current_user.profile_picture.url }}" class="user-profile_picture" alt="profile_picture">
         {% endif %}
+    </div>
+    {% if his_badges %}
+        <h2>My Badges</h2>
+        <div class="badges-container-profile">
+            {% for his_badge in his_badges %}
+                <div class="badges-profile">
+                    <img src="{{ his_badge.badge.image.url }}" alt="{{ his_badge.badge.title }}">
+                    <p>{{ his_badge.badge.title }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+    <!-- Floating Action Button -->
+    <div class="floating-button">
+        <button class="fab">+</button>
+        <div class="dropdown-content">
+            <a href="{% url 'add_announcement' %}">
+                <div class="dropdown-item">
+                    <i class="bi bi-megaphone-fill"></i>
+                </div>
+            </a>
+            <a href="{% url 'add_event' %}">
+                <div class="dropdown-item">
+                    <i class="bi bi-calendar-event-fill"></i>
+                </div>
+            </a>
+            <a href="{% url 'add_gallery' %}">
+                <div class="dropdown-item">
+                    <i class="bi bi-image-fill"></i>
+                </div>
+            </a>
+        </div>
     </div>
     
 </div>

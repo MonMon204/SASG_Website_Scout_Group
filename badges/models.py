@@ -44,3 +44,13 @@ class BadgeGradingSystem(models.Model):
     
     def __str__(self):
         return f'{self.member.user.username} - {self.badge.title} - {self.badge_term.term}'
+
+
+class BadgeApproval(models.Model):
+    member = models.ForeignKey(Member, on_delete=models.CASCADE, related_name='badge_approval', null=True, blank=True)
+    badge = models.ForeignKey(Badge, on_delete=models.CASCADE, related_name='badge_approval', null=True, blank=True) 
+    passed = models.BooleanField(default=False)
+    display_on_his_account = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'{self.member.user.username} - {self.badge.title}'

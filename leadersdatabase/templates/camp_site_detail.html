@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ camp_site.title }}</h1>
+<p>{{ camp_site.description }}</p>
+<p><a href="{{ camp_site.link }}">Camp Site Link</a></p>
+
+<h2>Files</h2>
+<ul>
+    {% for file in camp_site.files.all %}
+        <li><a href="{{ file.file.url }}">{{ file.file.name }}</a></li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'camp_sites_list' %}">Back to Camp Sites</a>
+{% endblock %}

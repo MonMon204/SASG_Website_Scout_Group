@@ -67,8 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function openLightbox(url) {
   const lightbox = document.getElementById('lightbox');
   const lightboxContent = document.getElementById('lightbox-content');
-  const lightboxVideo = document.getElementById('lightbox-video');
-  const lightboxSource = document.getElementById('lightbox-source');
 
   // Show the lightbox
   lightbox.style.display = 'flex';
@@ -77,67 +75,79 @@ function openLightbox(url) {
   const lightboxWidth = lightbox.offsetWidth;
   const lightboxHeight = lightbox.offsetHeight;
 
-  // If it's a video
-  if (url.endsWith('.mp4', '.avi', '.mov', '.wmv', '.flv', '.mkv', '.webm')) {
-    // Reset content to video
-    lightboxContent.innerHTML = `
-      <video id="lightbox-video" controls autoplay loop>
-        <source id="lightbox-source" type="video/mp4" src="${url}">
-        Your browser does not support the video tag.
-      </video>`;
+  // If it's a video (check using regex for common video formats)
+  const videoExtensions = /\.(mp4|avi|mov|wmv|flv|mkv|webm)$/i;
+  if (videoExtensions.test(url)) {
+      // Reset content to video
+      lightboxContent.innerHTML = `
+          <video id="lightbox-video" controls autoplay loop>
+              <source id="lightbox-source" src="${url}" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>`;
 
-    const videoElement = document.getElementById('lightbox-video');
-    
-    // Wait until video metadata is loaded to calculate dimensions
-    videoElement.addEventListener('loadedmetadata', function() {
-      const videoWidth = this.videoWidth;
-      const videoHeight = this.videoHeight;
-      const aspectRatio = videoWidth / videoHeight;
-
-      // Adjust video size based on aspect ratio and lightbox dimensions
-      if (aspectRatio > lightboxWidth / lightboxHeight) {
-        this.style.width = lightboxWidth * 0.9 + 'px';
-        this.style.height = 'auto';
-      } else {
-        this.style.width = 'auto';
-        this.style.height = lightboxHeight * 0.8 + 'px';
-      }
+      const videoElement = document.getElementById('lightbox-video');
       
-      this.play();  // Automatically start video playback
-    });
+      // Wait until video metadata is loaded to calculate dimensions
+      videoElement.addEventListener('loadedmetadata', function() {
+          const videoWidth = this.videoWidth;
+          const videoHeight = this.videoHeight;
+          const aspectRatio = videoWidth / videoHeight;
+
+          // Adjust video size based on aspect ratio and lightbox dimensions
+          if (aspectRatio > lightboxWidth / lightboxHeight) {
+              this.style.width = lightboxWidth * 0.9 + 'px';
+              this.style.height = 'auto';
+          } else {
+              this.style.width = 'auto';
+              this.style.height = lightboxHeight * 0.8 + 'px';
+          }
+
+          this.play();  // Automatically start video playback
+      });
   } 
   // If it's an image
   else {
-    // Reset content to image
-    lightboxContent.innerHTML = `<img id="lightbox-img" src="${url}" style="">`;
+      // Reset content to image
+      lightboxContent.innerHTML = `<img id="lightbox-img" src="${url}" style="">`;
 
-    // Wait until image is loaded to calculate dimensions
-    const imageElement = document.getElementById('lightbox-img');
-    imageElement.addEventListener('load', function() {
-      const imageWidth = this.naturalWidth;
-      const imageHeight = this.naturalHeight;
-      const aspectRatio = imageWidth / imageHeight;
+      // Wait until image is loaded to calculate dimensions
+      const imageElement = document.getElementById('lightbox-img');
+      imageElement.addEventListener('load', function() {
+          const imageWidth = this.naturalWidth;
+          const imageHeight = this.naturalHeight;
+          const aspectRatio = imageWidth / imageHeight;
 
-      // Adjust image size based on aspect ratio and lightbox dimensions
-      if (aspectRatio > lightboxWidth / lightboxHeight) {
-        this.style.width = lightboxWidth * 0.9 + 'px';
-        this.style.height = 'auto';
-      } else {
-        this.style.width = 'auto';
-        this.style.height = lightboxHeight * 0.8 + 'px';
-      }
-    });
+          // Adjust image size based on aspect ratio and lightbox dimensions
+          if (aspectRatio > lightboxWidth / lightboxHeight) {
+              this.style.width = lightboxWidth * 0.9 + 'px';
+              this.style.height = 'auto';
+          } else {
+              this.style.width = 'auto';
+              this.style.height = lightboxHeight * 0.8 + 'px';
+          }
+      });
   }
+
+  setTimeout(() => {
+      lightbox.classList.add('show');
+  }, 10);  // Small delay to allow the display to update before starting the transition
 }
+
 
 function closeLightbox() {
   const lightbox = document.getElementById('lightbox');
-  
-  // Hide the lightbox
-  lightbox.style.display = 'none';
 
-  // Reset content
-  document.getElementById('lightbox-content').innerHTML = '';
+  // Remove the show class to trigger the reverse transition
+  lightbox.classList.remove('show');
+    
+  // Wait for the transition to end before hiding the lightbox
+  setTimeout(() => {
+    // Hide the lightbox
+    lightbox.style.display = 'none';
+
+    // Reset content
+    document.getElementById('lightbox-content').innerHTML = '';
+  }, 400);  // Delay matches the transition duration
 }
 
 

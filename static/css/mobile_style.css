@@ -55,8 +55,8 @@
     .scout-laws ul {
         padding: 0;
         /* list-style-type: none; */
-        /* display: grid; */
-        grid-template-columns: repeat(2, 2fr) !important; /* 4 equal-width columns */
+        display: inline !important;
+        /* grid-template-columns: repeat(2, 2fr) !important; 4 equal-width columns */
     }
 
     /* Gallery Section */
@@ -136,6 +136,14 @@
         font-size: 1.5rem;
     }
 
+    .menu-toggle {
+        bottom: 20px;
+        left: 20px;
+        font-size: 1.5rem;
+        width: 50px;
+        height: 50px;
+    }
+
     /* Footer */
     footer {
         text-align: center;
@@ -183,6 +191,16 @@
 
     .main-dashboard {
         margin: 0;
+        margin-top: 30vh;
+        margin-bottom: 10rem;
+        padding: 1.4rem 0;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: -webkit-fill-available;
     }
 
     .dashboard-content h1 {
@@ -191,7 +209,7 @@
     }
 
     .user-name {
-        color: #007bff;
+        color: var(--primary-color);
     }
 
     .user-profile_picture {
@@ -203,6 +221,8 @@
         margin-left: auto;
         margin-right: auto;
     }
+
+    
 
     /* badge_details */
     /* Container adjustments for mobile */
@@ -271,47 +291,52 @@
 
     /* my_district page */
     .mydistrict-container {
+    padding: 10px;
+    }
+
+    /* Make the district selection dropdown full-width */
+    .district-selection {
+    margin-bottom: 10px;
+    }
+
+    .district-selection select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    }
+
+    /* Make the member list table responsive */
+    .member-list {
+    margin-top: 10px;
+    overflow-x: auto; /* Add horizontal scrolling */
+    }
+
+    table {
+    width: 100%;
+    border-collapse: collapse;
+    }
+
+    .grading-details-form {
         padding: 10px;
-      }
-    
-      /* Make the district selection dropdown full-width */
-      .district-selection {
-        margin-bottom: 10px;
-      }
-    
-      .district-selection select {
-        width: 100%;
-        padding: 10px;
-        font-size: 1rem;
-      }
-    
-      /* Make the member list table responsive */
-      .member-list {
-        margin-top: 10px;
-        overflow-x: auto; /* Add horizontal scrolling */
-      }
-    
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-    
-      /* Keep the table headers and cells horizontal */
-      th, td {
-        display: table-cell;
-        padding: 8px;
-        border: 1px solid #ddd;
-      }
-    
-      /* Add some margin to the table cells */
-      td {
-        margin-bottom: 10px;
-      }
-    
-      /* Make the profile picture smaller */
-      img {
-        width: 30px;
-      }
+        overflow-x: auto;
+    }
+
+    /* Keep the table headers and cells horizontal */
+    th, td {
+    display: table-cell;
+    padding: 8px;
+    border: 1px solid #ddd;
+    }
+
+    /* Add some margin to the table cells */
+    td {
+    margin-bottom: 10px;
+    }
+
+    /* Make the profile picture smaller */
+    img {
+    width: 30px;
+    }
       
 }
 

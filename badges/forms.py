@@ -34,7 +34,7 @@ class MemberBadgeSelectionForm(forms.Form):
 
 
 from django import forms
-from .models import BadgeTerm, GradeAttachment, BadgeGradingSystem
+from .models import BadgeTerm, GradeAttachment, BadgeGradingSystem, Badge, BadgeApproval
 
 class BadgeGradingForm(forms.Form):
     def __init__(self, *args, **kwargs):
